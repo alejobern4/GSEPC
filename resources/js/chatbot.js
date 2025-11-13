@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = '';
         appendMessage('Escribiendo...', 'bot');
 
-        fetch('/chat', {
+        fetch('https://gestionepc.page.gd/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
