@@ -40,15 +40,22 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = '';
         appendMessage('Escribiendo...', 'bot');
 
-        fetch('https://gestionepc.page.gd/api/chat', {
+        // Reemplaza con tu token de prueba
+        const HF_TOKEN = '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';
+        const MODEL = 'meta-llama/Llama-3.2-1B-Instruct'; // Ej: 'gpt-3.5-mini'
+
+        fetch('https://api-inference.huggingface.co/models/' + MODEL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': csrf
+                'Authorization': 'Bearer ' + HF_TOKEN,
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ mensaje: text })
-        }).then(async (res) => {
-            // remove the "Escribiendo..." placeholder
+            body: JSON.stringify({
+                inputs: text
+            })
+        })
+        .then(async (res) => {
+            // eliminar "Escribiendo..."
             const placeholders = messages.querySelectorAll('.hf-message.bot .bubble');
             if (placeholders.length) {
                 const last = placeholders[placeholders.length - 1];
@@ -62,16 +69,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 appendMessage('Error al conectarse al chatbot.', 'bot');
                 return;
             }
+
             const data = await res.json();
-            if (data.respuesta) {
-                appendMessage(data.respuesta, 'bot');
-            } else if (data.error) {
-                appendMessage(data.error, 'bot');
-            } else {
-                appendMessage('No tengo respuesta 😅', 'bot');
-            }
+            // Ajusta según la estructura de respuesta de tu modelo
+            const reply = data?.generated_text || 'No tengo respuesta 😅';
+            appendMessage(reply, 'bot');
+
         }).catch((err) => {
             appendMessage('Error en la petición: ' + err.message, 'bot');
         });
     });
+
 });
