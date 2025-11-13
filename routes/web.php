@@ -19,6 +19,12 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('login');
 
+// routes/web.php
+Route::get('/migrate', function() {
+    Artisan::call('migrate:fresh', ['--seed' => true]);
+    return 'Migración y seed completados';
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function() {
         app(\App\Http\Controllers\Auth\AlertasController::class)->enviarAlertas();
