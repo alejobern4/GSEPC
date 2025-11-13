@@ -8,10 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const input = document.getElementById('hf-input');
     const messages = document.getElementById('hf-messages');
 
-    // Configura tu token y modelo aquí
-    const HF_TOKEN = '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';
-    const MODEL = 'meta-llama/Llama-3.2-1B-Instruct'; // Ej: 'gpt-3.5-mini'
-
     function appendMessage(text, who = 'bot') {
         const el = document.createElement('div');
         el.className = 'hf-message ' + (who === 'user' ? 'user' : 'bot');
@@ -44,14 +40,15 @@ document.addEventListener('DOMContentLoaded', function () {
         appendMessage('Escribiendo...', 'bot');
 
         // Petición directa a Hugging Face
-        fetch('https://api-inference.huggingface.co/models/' + MODEL, {
+        fetch('/chat', {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + HF_TOKEN,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
-            body: JSON.stringify({ inputs: text })
+            body: JSON.stringify({ mensaje: text })
         })
+
         .then(async (res) => {
             // eliminar "Escribiendo..."
             const placeholders = messages.querySelectorAll('.hf-message.bot .bubble');
