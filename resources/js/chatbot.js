@@ -1,4 +1,4 @@
-// Simple chat widget JS (uses fetch and expects /chat POST route)
+// Simple chat widget JS (direct Hugging Face fetch)
 
 document.addEventListener('DOMContentLoaded', function () {
     const openBtn = document.getElementById('hf-open-btn');
@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const input = document.getElementById('hf-input');
     const messages = document.getElementById('hf-messages');
 
-    const csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+    // Configura tu token y modelo aquí
+    const HF_TOKEN = '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';
+    const MODEL = 'meta-llama/Llama-3.2-1B-Instruct'; // Ej: 'gpt-3.5-mini'
 
     function appendMessage(text, who = 'bot') {
         const el = document.createElement('div');
@@ -36,23 +38,19 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         const text = input.value.trim();
         if (!text) return;
+
         appendMessage(text, 'user');
         input.value = '';
         appendMessage('Escribiendo...', 'bot');
 
-        // Reemplaza con tu token de prueba
-        const HF_TOKEN = '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';
-        const MODEL = 'meta-llama/Llama-3.2-1B-Instruct'; // Ej: 'gpt-3.5-mini'
-
+        // Petición directa a Hugging Face
         fetch('https://api-inference.huggingface.co/models/' + MODEL, {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer ' + HF_TOKEN,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                inputs: text
-            })
+            body: JSON.stringify({ inputs: text })
         })
         .then(async (res) => {
             // eliminar "Escribiendo..."
@@ -71,13 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             const data = await res.json();
-            // Ajusta según la estructura de respuesta de tu modelo
+
+            // Ajusta según el modelo Hugging Face que uses
             const reply = data?.generated_text || 'No tengo respuesta 😅';
             appendMessage(reply, 'bot');
-
-        }).catch((err) => {
+        })
+        .catch((err) => {
             appendMessage('Error en la petición: ' + err.message, 'bot');
         });
     });
-
 });
