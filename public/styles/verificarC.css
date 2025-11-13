@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f6f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 450px;
+    max-width: 90%;
+    min-height: auto;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+                0 10px 10px rgba(0,0,0,0.22);
+    transition: all 0.6s ease-in-out;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-form {
+    position: static;
+    top: auto;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: none;
+}
+
+.form-login {
+    left: auto;
+    z-index: auto;
+    opacity: 1;
+}
+
+form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    text-align: center;
+    width: 100%;
+}
+
+h2 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+}
+
+.logo img {
+    width: 70px;
+    margin: 10px 0;
+}
+
+span {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.container-input {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    background-color: #eee;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.container-input ion-icon {
+    margin-right: 10px;
+    color: #666;
+    font-size: 20px;
+}
+
+.container-input input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    padding: 6px 0;
+}
+
+a {
+    color: #333;
+    font-size: 13px;
+    margin: 8px 0;
+    text-decoration: none;
+}
+
+button {
+    margin-top: 12px;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #00a884;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #059d7d;
+}
+
+.error-messages {
+    margin-top: 15px;
+    color: #e74c3c;
+    text-align: left;
+    font-size: 13px;
+    width: 100%;
+}
+.error-messages ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.error-messages li {
+    margin-bottom: 5px;
+}
+
+.success-message {
+    margin-top: 15px;
+    color: #27ae60;
+    text-align: left;
+    font-size: 13px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        min-height: auto;
+    }
+    form {
+        padding: 25px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 20px 15px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    button {
+        padding: 10px 30px;
+    }
+}

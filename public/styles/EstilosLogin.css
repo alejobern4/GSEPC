@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f6f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 700px;
+    max-width: 100%;
+    min-height: 750px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+                0 10px 10px rgba(0,0,0,0.22);
+    transition: all 0.6s ease-in-out;
+}
+
+.container-form {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease-in-out;
+}
+
+.form-login {
+    left: 0;
+    z-index: 2;
+}
+
+.form-register {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.right-panel-active .form-login {
+    transform: translateX(100%);
+}
+
+.container.right-panel-active .form-register {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+
+form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px; /* reducido de 50px */
+    text-align: center;
+    width: 100%;
+}
+
+h2 {
+    margin: 0 0 10px 0; /* separo un poco el título */
+    font-size: 22px; /* un poco más pequeño */
+}
+
+.logo img {
+    width: 70px; /* más pequeño */
+    margin: 10px 0;
+}
+
+span {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.container-input {
+    display: flex;
+    align-items: center;
+    margin: 6px 0; /* menos espacio vertical */
+    background-color: #eee;
+    padding: 8px; /* menos padding */
+    border-radius: 8px;
+}
+
+.container-input ion-icon {
+    margin-right: 10px;
+    color: #666;
+    font-size: 20px; /* tamaño de iconos consistente */
+}
+
+.container-input input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 14px; /* tamaño texto más pequeño */
+    padding: 6px 0;
+}
+
+a {
+    color: #333;
+    font-size: 13px;
+    margin: 8px 0;
+    text-decoration: none;
+}
+
+button {
+    margin-top: 12px;
+    padding: 10px 40px; /* botón más pequeño */
+    border: none;
+    border-radius: 20px;
+    background-color: #00a884;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #059d7d;
+}
+
+button.ghost {
+    background-color: transparent;
+    border: 2px solid #fff;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: linear-gradient(to right, #00a884, #1cc7a5);
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px; /* reducido */
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.container-input select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    padding: 6px 30px 6px 0;
+    color: #666;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+    cursor: pointer;
+}

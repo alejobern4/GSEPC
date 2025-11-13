@@ -1,0 +1,154 @@
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    width: 280px;
+    background: linear-gradient(180deg, #136ea7 0%, #0d4b6e 100%);
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar .brand {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .menu {
+    padding: 20px 0;
+    list-style: none;
+}
+
+.sidebar .menu-item {
+    margin: 8px 0;
+    padding: 0 15px;
+}
+
+.sidebar .menu-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .menu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.sidebar .menu-link i {
+    font-size: 20px;
+    margin-right: 10px;
+    min-width: 25px;
+    text-align: center;
+}
+
+.sidebar .menu-link span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Submenu Styles */
+.sidebar .sub-menu {
+    margin-left: 35px;
+    margin-top: 5px;
+    overflow: hidden;
+    height: 0;
+    transition: all 0.3s ease;
+}
+
+.sidebar .sub-menu-toggle .sub-menu {
+    height: auto;
+    padding: 5px 0;
+}
+
+.sidebar .sub-menu-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .sub-menu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.sidebar .sub-menu-link i {
+    font-size: 16px;
+    margin-right: 8px;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Minimized Sidebar */
+.sidebar.minimize {
+    width: 70px;
+}
+
+.sidebar.minimize .menu-link span,
+.sidebar.minimize .sub-menu {
+    display: none;
+}
+
+.sidebar.minimize .menu-link {
+    justify-content: center;
+    padding: 12px;
+}
+
+.sidebar.minimize .menu-link i {
+    margin: 0;
+    font-size: 22px;
+}
+
+/* Menu Button */
+#menu-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#menu-btn:hover {
+    color: #ffffff;
+}
+
+/* Active Menu Item */
+.sidebar .menu-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Scrollbar Styles */
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+} 
