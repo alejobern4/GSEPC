@@ -1,0 +1,190 @@
+/* Asegura que el body y el contenedor principal ocupen toda la altura */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f7f7f7;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+    min-height: 1px;
+}
+
+/* Main container for the dashboard content */
+.dashboard-page {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styles for the dashboard header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+/* Styles for the logo container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Styles for the logo image */
+.logo {
+    height: 50px;
+    margin-right: 15px;
+}
+
+/* Styles for the user name display */
+.user-name {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Secondary button styles */
+.btn-secondary {
+    padding: 10px 20px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #c62828;
+}
+
+.dashboard-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.dashboard-buttons > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff;
+    border: 0.5px solid #258fcf;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    min-width: 300px;
+}
+
+.dashboard-button {
+    width: 250px;
+    background-color: #136ea7;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    padding: 30px 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.dashboard-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-color: #000;
+}
+
+.dashboard-button span {
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+
+.dashboard-buttondos {
+    width: 150px;
+    background-color: #258fcf;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.dashboard-buttondos:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-color: #000;
+}
+
+.dashboard-buttondos span {
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+
+/* Footer ajustado para quedar al final de la pantalla */
+.footer {
+    background-color: #2b74d0;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* Esto hace que se quede al fondo si hay poco contenido */
+    flex-shrink: 0;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.footer-icons a {
+    color: #ecf0f1;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-icons a:hover {
+    color: #1abc9c;
+}
+
+.btn-pequeño{
+    padding: 8px 8px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
